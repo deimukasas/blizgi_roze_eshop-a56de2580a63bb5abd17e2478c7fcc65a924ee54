@@ -36,107 +36,150 @@ function OrderForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Užsakymo forma</h1>
-      
-      {/* Vardas */}
-      <input
-        type="text"
-        name="name"
-        placeholder="Vardas"
-        onChange={handleChange}
-        required
-      />
+    <div>
+      <form onSubmit={handleSubmit} style={{ maxWidth: "500px", margin: "0 auto", textAlign: "left" }}>
+        <h1 style={{ textAlign: "center" }}>Užsakymo forma</h1>
 
-      {/* El. paštas */}
-      <input
-        type="email"
-        name="email"
-        placeholder="El. paštas"
-        onChange={handleChange}
-        required
-      />
+        {/* Vardas */}
+        <label>Vardas:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Jūsų vardas"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Telefonas */}
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Telefonas"
-        onChange={handleChange}
-        required
-      />
+        {/* El. paštas */}
+        <label>El. paštas:</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Jūsų el. paštas"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Pristatymo adresas */}
-      <input
-        type="text"
-        name="address"
-        placeholder="Pristatymo adresas"
-        onChange={handleChange}
-        required
-      />
+        {/* Telefonas */}
+        <label>Telefonas:</label>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Jūsų telefono numeris"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Gėlių spalva */}
-      <label>Gėlių spalva:</label>
-      <select name="flowerColor" onChange={handleChange}>
-        <option value="red">Raudona</option>
-        <option value="pink">Rožinė</option>
-        <option value="white">Balta</option>
-        <option value="lightpink">Rausva</option>
-      </select>
+        {/* Pristatymo adresas */}
+        <label>Pristatymo adresas:</label>
+        <input
+          type="text"
+          name="address"
+          placeholder="Adresas pristatymui"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Kiekis */}
-      <label>Kiekis:</label>
-      <input
-        type="number"
-        name="quantity"
-        onChange={handleChange}
-        min="1"
-        required
-      />
+        {/* Gėlių spalva */}
+        <label>Gėlių spalva:</label>
+        <select
+          name="flowerColor"
+          onChange={handleChange}
+          style={{ width: "100%", marginBottom: "10px" }}
+        >
+          <option value="red">Raudona</option>
+          <option value="pink">Rožinė</option>
+          <option value="white">Balta</option>
+          <option value="lightpink">Rausva</option>
+        </select>
 
-      {/* Kainos rodymas */}
-      <p>
-        Kaina:{" "}
-        {formData.quantity * flowerPrices[formData.flowerColor]} €
-      </p>
+        {/* Kiekis */}
+        <label>Kiekis:</label>
+        <input
+          type="number"
+          name="quantity"
+          onChange={handleChange}
+          min="1"
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Pristatymo data ir laikas */}
-      <label>Pristatymo data:</label>
-      <input
-        type="date"
-        name="deliveryDate"
-        onChange={handleChange}
-        required
-      />
+        {/* Kainos rodymas */}
+        <p style={{ textAlign: "center", fontWeight: "bold", marginBottom: "10px" }}>
+          Kaina: {formData.quantity * flowerPrices[formData.flowerColor]} €
+        </p>
 
-      <label>Pristatymo laikas:</label>
-      <select name="deliveryTime" onChange={handleChange} required>
-        {availableTimes.map((time) => (
-          <option key={time} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
+        {/* Pristatymo data */}
+        <label>Pristatymo data:</label>
+        <input
+          type="date"
+          name="deliveryDate"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        />
 
-      {/* Apmokėjimo būdas */}
-      <label>Pasirinkite apmokėjimo būdą:</label>
-      <select name="paymentMethod" onChange={handleChange} required>
-        <option value="elBankininkyste">El. bankininkystė</option>
-        <option value="kortele">Mokėjimo kortelė</option>
-        <option value="pristatymoMetu">Pristatymo metu</option>
-      </select>
+        {/* Pristatymo laikas */}
+        <label>Pristatymo laikas:</label>
+        <select
+          name="deliveryTime"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        >
+          {availableTimes.map((time) => (
+            <option key={time} value={time}>
+              {time}
+            </option>
+          ))}
+        </select>
 
-      {/* Komentarai */}
-      <label>Komentarai:</label>
-      <textarea
-        name="comment"
-        placeholder="Jūsų komentaras..."
-        onChange={handleChange}
-      />
+        {/* Apmokėjimo būdas */}
+        <label>Pasirinkite apmokėjimo būdą:</label>
+        <select
+          name="paymentMethod"
+          onChange={handleChange}
+          required
+          style={{ width: "100%", marginBottom: "10px" }}
+        >
+          <option value="elBankininkyste">El. bankininkystė</option>
+          <option value="kortele">Mokėjimo kortelė</option>
+          <option value="pristatymoMetu">Pristatymo metu</option>
+        </select>
 
-      {/* Pateikimo mygtukas */}
-      <button type="submit">Apmokėti ir užsakyti</button>
-    </form>
+        {/* Komentarai */}
+        <label>Komentarai:</label>
+        <textarea
+          name="comment"
+          placeholder="Jūsų komentaras..."
+          onChange={handleChange}
+          style={{ width: "100%", height: "100px", marginBottom: "10px" }}
+        />
+
+        {/* Pateikimo mygtukas */}
+        <button
+          type="submit"
+          style={{ width: "100%", backgroundColor: "#ff66b2", color: "white", padding: "10px", border: "none", borderRadius: "5px" }}
+        >
+          Apmokėti ir užsakyti
+        </button>
+      </form>
+
+      {/* Puslapio žemėlapis */}
+      <footer style={{ marginTop: "50px", borderTop: "1px solid #eb097a", paddingTop: "20px" }}>
+        <h3>Puslapio žemėlapis</h3>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li style={{ marginBottom: "10px" }}><a href="/">Pagrindinis puslapis</a></li>
+          <li style={{ marginBottom: "10px" }}><a href="/catalog">Prekių katalogas</a></li>
+          <li style={{ marginBottom: "10px" }}><a href="/order">Užsakyti</a></li>
+          <li style={{ marginBottom: "10px" }}><a href="/admin">Administratoriaus prisijungimas</a></li>
+        </ul>
+      </footer>
+    </div>
   );
 }
 

@@ -8,43 +8,28 @@ body {
     padding: 0;
 }
 
-/* Dekoratyviniai kraštai */
 body::before,
 body::after {
-    content: ""; /* Tuščias elementas */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 8%;
-    background-color: #ff66b2; /* Ryškiai rožinis fonas */
-    z-index: -1;
-}
-
-body::before {
-    left: 0;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-}
-
-body::after {
-    right: 0;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+    content: none; /* Pašalinti dekoratyviniai kraštai ir taškeliai */
 }
 
 /* Header (antraštė) */
 header {
     background-color: #ffffff; /* Balta spalva */
     padding: 20px 0;
-    border-bottom: 2px solid #ff66b2; /* Rožinis apatinis kraštas */
+    border-bottom: 2px solid #eb097a; /* Rožinis apatinis kraštas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Švelnesnis šešėlis */
 }
 
+/* Toliau palikta visa kita taip, kaip buvo jūsų originaliame faile */
+
 header h1 {
     font-family: 'Lobster', cursive; /* Naujas storesnis ir minkštesnis šriftas */
-    font-size: 2.8rem;
-    color: #ff66b2;
+    font-size: 3rem; /* Didesnis šrifto dydis */
+    font-weight: bold;
+    color: #eb097a;
     margin: 0;
+    text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff99cc, 0 0 30px #ff66b2; /* Blizgesio efektas */
 }
 
 /* Navigacijos juosta */
@@ -62,7 +47,7 @@ nav ul li {
 }
 
 nav a {
-    color: #ff66b2;
+    color: #eb097a;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.2rem;
@@ -73,27 +58,29 @@ nav a {
 
 nav a:hover {
     color: #ffffff;
-    background-color: #ff66b2; /* Rožinis fonas per pelės užvedimą */
+    background-color: #eb097a; /* Rožinis fonas per pelės užvedimą */
 }
 
 /* Antraštės (H1, H2, H3) */
 h1, h2, h3 {
     font-family: 'Lobster', cursive; /* Šriftas pakeistas į Lobster */
-    color: #ff66b2;
+    font-weight: bold; /* Pastorintas tekstas */
+    color: #eb097a; /* Ryškiai rožinė spalva */
+    text-align: center; /* Centruotas tekstas */
 }
 
 h1 {
-    font-size: 2.8rem;
+    font-size: 3rem; /* Padidintas dydis */
     margin-top: 20px;
 }
 
 h2 {
-    font-size: 2.3rem;
+    font-size: 2.5rem; /* Šiek tiek mažesnis */
     margin-top: 15px;
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Dar mažesnis */
     margin-top: 10px;
 }
 
@@ -103,24 +90,25 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
-    border: 2px solid #ff66b2;
+    width: 90%;
+    max-width: 1000px;
+    border: 2px solid #eb097a;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     background-color: #1a1a1a;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
-.product img {
-    width: 100%;
+.product-image {
+    width: 400px; /* Padidintas plotis */
+    height: auto; /* Automatinis proporcingumas */
     border-radius: 10px;
-    border: 3px solid #ff66b2;
+    border: 3px solid #eb097a;
     transition: transform 0.3s ease;
 }
 
-.product img:hover {
-    transform: scale(1.05);
+.product-image:hover {
+    transform: scale(1.1); /* Stipresnis padidėjimas užvedus pelę */
 }
 
 .product h2 {
@@ -137,7 +125,7 @@ form {
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a1a;
-    border: 2px solid #ff66b2;
+    border: 2px solid #eb097a;
     border-radius: 10px;
     width: 80%;
     max-width: 500px;
@@ -152,7 +140,7 @@ form select {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
-    border: 2px solid #ff66b2;
+    border: 2px solid #eb097a;
     border-radius: 5px;
     background-color: #222;
     color: #ffffff;
@@ -160,7 +148,7 @@ form select {
 }
 
 form button {
-    background-color: #ff66b2;
+    background-color: #eb097a;
     color: #ffffff;
     padding: 12px 24px;
     font-size: 1.2rem;
@@ -179,13 +167,13 @@ form button:hover {
 footer {
     background-color: #1a1a1a;
     padding: 20px 0;
-    border-top: 2px solid #ff66b2;
+    border-top: 2px solid #eb097a;
     text-align: center;
-    color: #ff66b2;
+    color: #eb097a;
 }
 
 footer a {
-    color: #ff66b2;
+    color: #eb097a;
     text-decoration: none;
     font-weight: bold;
 }
@@ -193,3 +181,291 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* Admin mygtukas */
+.admin-button {
+    position: fixed; /* Mygtukas nepriklauso nuo kitų elementų */
+    top: 20px; /* Atstumas nuo viršaus */
+    right: 20px; /* Atstumas nuo dešinės pusės */
+    background-color: hotpink; /* Mygtuko spalva */
+    color: white; /* Teksto spalva */
+    border: none; /* Pašaliname rėmelį */
+    padding: 10px 20px; /* Vidiniai tarpai */
+    border-radius: 5px; /* Apvalūs kampai */
+    font-size: 1rem; /* Šrifto dydis */
+    cursor: pointer; /* Pelės žymeklis keičiasi į rankytę */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Mygtukas bus virš kitų elementų */
+}
+
+.admin-button:hover {
+    background-color: violet; /* Violetinė spalva užvedus pelę */
+    transform: scale(1.05); /* Padidėja mygtukas užvedus pelę */
+}/* Bendri puslapio nustatymai */
+body {
+    background-color: #000000; /* Juodas fonas */
+    color: #ffffff; /* Baltas tekstas */
+    font-family: 'Montserrat', sans-serif; /* Paprastas šriftas */
+    text-align: center; /* Lygiavimas centre */
+    margin: 0;
+    padding: 0;
+}
+
+/* Dekoratyviniai kraštai */
+body::before,
+body::after {
+    content: ""; /* Tuščias elementas */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8%;
+    background-color: #ff66b2; /* Ryškiai rožinis fonas */
+    z-index: -1;
+    
+}
+
+body::before {
+    left: 0;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+body::after {
+    right: 0;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+/* Header (antraštė) */
+header {
+    background-color: #ffffff; /* Balta spalva */
+    padding: 20px 0;
+    border-bottom: 2px solid #eb097a; /* Rožinis apatinis kraštas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Švelnesnis šešėlis */
+}
+
+header h1 {
+    font-family: 'Lobster', cursive; /* Naujas storesnis ir minkštesnis šriftas */
+    font-size: 3rem; /* Didesnis šrifto dydis */
+    font-weight: bold;
+    color: #eb097a;
+    margin: 0;
+    text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff99cc, 0 0 30px #ff66b2; /* Blizgesio efektas */
+}
+
+/* Navigacijos juosta */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Didesni tarpai tarp mygtukų */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav a {
+    color: #eb097a;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px; /* Papildomi tarpai aplink tekstą */
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+    background-color: #eb097a; /* Rožinis fonas per pelės užvedimą */
+}
+
+/* Antraštės (H1, H2, H3) */
+h1, h2, h3 {
+    font-family: 'Lobster', cursive; /* Šriftas pakeistas į Lobster */
+    font-weight: bold; /* Pastorintas tekstas */
+    color: #eb097a; /* Ryškiai rožinė spalva */
+    text-align: center; /* Centruotas tekstas */
+}
+
+h1 {
+    font-size: 3rem; /* Padidintas dydis */
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 2.5rem; /* Šiek tiek mažesnis */
+    margin-top: 15px;
+}
+
+h3 {
+    font-size: 2rem; /* Dar mažesnis */
+    margin-top: 10px;
+}
+
+/* Produktų katalogas */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1000px;
+    border: 2px solid #eb097a;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.product-image {
+    width: 400px; /* Padidintas plotis */
+    height: auto; /* Automatinis proporcingumas */
+    border-radius: 10px;
+    border: 3px solid #eb097a;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.1); /* Stipresnis padidėjimas užvedus pelę */
+}
+
+.product h2 {
+    margin: 10px 0 5px;
+}
+
+.product p {
+    margin: 5px 0;
+    color: #f5f5f5;
+}
+
+/* Užsakymo forma */
+form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border: 2px solid #eb097a;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #eb097a;
+    border-radius: 5px;
+    background-color: #222;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #eb097a;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ff99cc;
+    transform: scale(1.05);
+}
+
+/* Footer (apačia) */
+footer {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    border-top: 2px solid #eb097a;
+    text-align: center;
+    color: #eb097a;
+}
+
+footer a {
+    color: #eb097a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Admin mygtukas */
+.admin-button {
+    position: fixed; /* Mygtukas nepriklauso nuo kitų elementų */
+    top: 20px; /* Atstumas nuo viršaus */
+    right: 20px; /* Atstumas nuo dešinės pusės */
+    background-color: hotpink; /* Mygtuko spalva */
+    color: white; /* Teksto spalva */
+    border: none; /* Pašaliname rėmelį */
+    padding: 10px 20px; /* Vidiniai tarpai */
+    border-radius: 5px; /* Apvalūs kampai */
+    font-size: 1rem; /* Šrifto dydis */
+    cursor: pointer; /* Pelės žymeklis keičiasi į rankytę */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Mygtukas bus virš kitų elementų */
+}
+
+.admin-button:hover {
+    background-color: violet; /* Violetinė spalva užvedus pelę */
+    transform: scale(1.05); /* Padidėja mygtukas užvedus pelę */
+}
+
+.page-footer {
+    background-color: #1a1a1a; /* Tamsiai pilkas fonas */
+    padding: 20px;
+    color: #ffffff; /* Baltas tekstas */
+    text-align: center;
+    margin-top: 30px;
+    border-top: 2px solid #ff66b2; /* Ryškiai rožinis kraštas */
+  }
+  
+  .page-footer h3 {
+    font-size: 1.8rem;
+    color: #ff66b2; /* Rožinis pavadinimas */
+    margin-bottom: 10px;
+  }
+  
+  .sitemap {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Tarpai tarp nuorodų */
+  }
+  
+  .sitemap li {
+    display: inline;
+  }
+  
+  .sitemap a {
+    color: #ffffff; /* Baltos nuorodos */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .sitemap a:hover {
+    color: #ff66b2; /* Rožinė spalva per užvedimą */
+  }
+  
+
+  .no-bullets {
+    list-style: none; /* Pašalina taškiukus */
+    padding: 0; /* Pašalina vidinius įtraukimus */
+    margin: 0; /* Pašalina išorinius įtraukimus */
+  }
+  
